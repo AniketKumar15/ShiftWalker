@@ -15,8 +15,8 @@ public class PlayerMove : MonoBehaviour
     public LayerMask groundLayer;
 
     private Rigidbody2D rb;
-    private bool isGrounded;
-    private int jumpCount;
+    public bool isGrounded;
+    public int jumpCount;
     public int maxJumps = 2; // 1 = normal jump, 2 = double jump
 
     private bool facingRight = true;
@@ -27,9 +27,9 @@ public class PlayerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        wasGrounded = false;
     }
-
-    void Update()
+    void FixedUpdate()
     {
         // Ground check
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
@@ -40,7 +40,11 @@ public class PlayerMove : MonoBehaviour
             jumpCount = 0;
         }
         wasGrounded = isGrounded;
+    }
 
+    void Update()
+    {
+       
         // Horizontal movement
         float moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);

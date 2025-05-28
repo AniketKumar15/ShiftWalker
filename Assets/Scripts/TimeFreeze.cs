@@ -9,7 +9,7 @@ public class TimeFreeze : MonoBehaviour
     void Start()
     {
         // Find all platforms in the scene that can be frozen
-        platforms = FindObjectsOfType<MovingPlatform>();
+        platforms = GetComponentsInChildren<MovingPlatform>();
     }
 
     void Update()

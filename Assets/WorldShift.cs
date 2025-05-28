@@ -16,6 +16,9 @@ public class WorldShift : MonoBehaviour
     {
         playerRb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
 
+        worldA.SetActive(true);
+        worldB.SetActive(false);
+
         if (glitchEffect != null)
             glitchEffect.enabled = false;
     }
