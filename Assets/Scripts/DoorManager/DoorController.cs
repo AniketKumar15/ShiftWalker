@@ -26,6 +26,7 @@ public class DoorController : MonoBehaviour
         {
             OpenDoor();
             this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            AudioManager.instance.Play("DoorUnlock");
         }
         else
         {

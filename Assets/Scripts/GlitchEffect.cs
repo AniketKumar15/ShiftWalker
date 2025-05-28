@@ -7,11 +7,7 @@ public class GlitchEffect : MonoBehaviour
     [Range(0, 1)] public float glitchAmount = 0.1f;
     [Range(0, 10)] public float glitchSpeed = 5f;
 
-    private void Start()
-    {
-        Camera.main.orthographicSize = 5f;
-    }
-
+   
     private void OnRenderImage(RenderTexture src, RenderTexture dest)
     {
         if (glitchMaterial != null)

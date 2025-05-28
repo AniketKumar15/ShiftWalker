@@ -209,3 +209,17 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: PlateClick
+    clip: {fileID: 8300000, guid: cc89a35543631484daeff068e0964a1f, type: 3}
+    mixer: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DoorUnlock
+    clip: {fileID: 8300000, guid: 1006ec7f8b9afd646a798f130ed3e5b6, type: 3}
+    mixer: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

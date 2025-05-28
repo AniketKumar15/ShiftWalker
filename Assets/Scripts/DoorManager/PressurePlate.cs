@@ -11,6 +11,7 @@ public class PressurePlate : MonoBehaviour
         {
             isPressed = true;
             connectedDoor.PlateActivated();
+            AudioManager.instance.Play("PlateClick");
         }
     }
 

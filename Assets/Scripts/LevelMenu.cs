@@ -11,6 +11,7 @@ public class LevelMenu : MonoBehaviour
     private void Awake()
     {
         int UnlockLevel = PlayerPrefs.GetInt("UnlockLevel", 1);
+        UnlockLevel = Mathf.Clamp(UnlockLevel, 1, btn.Length);
         for (int i = 0; i < btn.Length; i++)
         {
             btn[i].interactable = false;
