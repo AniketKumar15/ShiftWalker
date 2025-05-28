@@ -38,14 +38,14 @@ public class DoorController : MonoBehaviour
     void OpenDoor()
     {
         Debug.Log("Door opened!");
-        doorOpen.SetActive(true); // or play animation, or destroy(gameObject)
-        doorClose.SetActive(false);
+        if (doorOpen != null)  doorOpen.SetActive(true); 
+        if (doorClose != null) doorClose.SetActive(false);
     }
 
     void CloseDoor()
     {
         Debug.Log("Door closed!");
-        doorOpen.SetActive(false); // or play animation, or destroy(gameObject)
-        doorClose.SetActive(true);
+        if (doorOpen != null) doorOpen.SetActive(false);
+        if (doorClose != null) doorClose.SetActive(true);
     }
 }

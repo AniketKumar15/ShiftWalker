@@ -11,7 +11,7 @@ public class LevelMenu : MonoBehaviour
     private void Awake()
     {
         int UnlockLevel = PlayerPrefs.GetInt("UnlockLevel", 1);
-        UnlockLevel = Mathf.Clamp(UnlockLevel, 1, btn.Length);
+       
         for (int i = 0; i < btn.Length; i++)
         {
             btn[i].interactable = false;
@@ -23,13 +23,25 @@ public class LevelMenu : MonoBehaviour
         for (int i = 0; i < UnlockLevel; i++)
         {
             btn[i].interactable = true;
-            // Mark as completed (except last unlocked, which is current level)
-            if (i < UnlockLevel - 1)
+            bool isFinalLevel = (i == btn.Length - 1);
+            bool shouldShowStar = (i < UnlockLevel - 1 || isFinalLevel); // updated condition
+
+            if (shouldShowStar)
             {
                 Transform star = btn[i].transform.Find("Star");
                 if (star != null)
                     star.gameObject.SetActive(true);
             }
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U)) // Press "U" to unlock all levels
+        {
+            PlayerPrefs.SetInt("UnlockLevel", 8); // Unlock up to Level 8
+            PlayerPrefs.Save();
+            Debug.Log("All levels unlocked for testing.");
         }
     }
     public void OpenLevel1(int levelIndex)

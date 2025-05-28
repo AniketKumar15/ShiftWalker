@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -65,10 +65,17 @@ public class WinLevel : MonoBehaviour
 
     void UnlockNewLevel()
     {
-        if(SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedLevel"))
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        int maxLevels = 8; // Total number of levels (should match your button array size)
+
+        if (currentLevel >= PlayerPrefs.GetInt("ReachedLevel"))
         {
-            PlayerPrefs.SetInt("ReachedLevel", SceneManager.GetActiveScene().buildIndex + 1);
-            PlayerPrefs.SetInt("UnlockLevel", PlayerPrefs.GetInt("UnlockLevel", 1) + 1);
+            PlayerPrefs.SetInt("ReachedLevel", currentLevel + 1);
+
+            int nextUnlock = PlayerPrefs.GetInt("UnlockLevel", 1) + 1;
+            nextUnlock = Mathf.Clamp(nextUnlock, 1, maxLevels); //  Clamp so it doesn't exceed
+            PlayerPrefs.SetInt("UnlockLevel", nextUnlock);
+
             PlayerPrefs.Save();
         }
     }
