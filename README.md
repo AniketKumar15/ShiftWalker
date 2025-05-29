@@ -54,7 +54,7 @@ In **Chapter 2**, you must escape Koko’s simulation and reclaim your freedom.
 
 - `A` / `D` – Move
 - `Space` – Jump (Double Jump Enabled)
-- `Left Shift` or custom key – Shift Worlds
+- `Right Mouse` or E – Shift Worlds
 - Avoid spikes, time your jumps, and use your shifting ability to solve puzzles!
 
 ## 📦 Status
