@@ -43,6 +43,13 @@ public class LevelMenu : MonoBehaviour
             PlayerPrefs.Save();
             Debug.Log("All levels unlocked for testing.");
         }
+        if (Input.GetKey(KeyCode.P) && Input.GetKeyDown(KeyCode.T))
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+            Debug.Log("PlayerPrefs reset.");
+        }
+
     }
     public void OpenLevel1(int levelIndex)
     {

@@ -38,9 +38,16 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        try
         {
-            collision.transform.SetParent(transform);
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                collision.transform.SetParent(transform, true);
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogWarning("Failed to parent player to platform: " + e.Message);
         }
     }
 

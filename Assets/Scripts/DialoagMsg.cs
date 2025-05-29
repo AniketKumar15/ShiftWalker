@@ -13,7 +13,8 @@ public class DialoagMsg : MonoBehaviour
     public string[] introDialogue = {
         "Hello, Player. It's me, Koko.",
         "Listen carefully — I have a secret to tell you.",
-        "I'm giving you the power to shift between two worlds. Using E or Right Mouse Button",
+        "I'm giving you the power to shift between two worlds.",
+        "You Can Use by pressing E or Right Mouse Button",
         "You’re probably wondering why.",
         "It's because I want a powerful diamond.",
         "But unfortunately, I can’t get it on my own...",
